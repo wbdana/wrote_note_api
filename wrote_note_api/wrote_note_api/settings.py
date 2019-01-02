@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.notes.apps.NotesConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wrote_note_api',
         'USER': 'wrote_note_api_user',
-        'PASSWORD': os.environ.DATABASE_PASSWORD,
+        'PASSWORD': os.environ['DATABASE_PASSWORD'],
         'HOST': 'localhost',
         'PORT': '',
     }
