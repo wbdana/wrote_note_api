@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == '__main__':
-    # TODO WBD This should vary by environment ----------------⤵
+    # TODO WBD This should vary by environment ----------------
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.test')
     try:
         from django.core.management import execute_from_command_line
