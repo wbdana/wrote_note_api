@@ -1,5 +1,6 @@
 # Added
-source.env
+secrets.json
+wrote_note_api/settings/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
