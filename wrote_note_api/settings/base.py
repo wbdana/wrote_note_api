@@ -10,7 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, json
+from django.core.exceptions import ImproperlyConfigured
+
+with open(os.path.abspath("../secrets.json")) as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret_setting(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +32,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&j)4(rss=v1d@gu5ek(a6(9&fh@*1#w&@g)ngx!&!2p$k**4lu'
+# SECRET_KEY = '&j)4(rss=v1d@gu5ek(a6(9&fh@*1#w&@g)ngx!&!2p$k**4lu'
+SECRET_KEY = get_secret_setting('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,8 +98,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wrote_note_api',
-        'USER': 'wrote_note_api_user',
-        'PASSWORD': os.environ['DATABASE_PASSWORD'],
+        'USER': get_secret_setting('DATABASE_USER'),
+        'PASSWORD': get_secret_setting('DATABASE_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
