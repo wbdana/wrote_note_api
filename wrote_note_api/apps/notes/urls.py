@@ -6,7 +6,7 @@ from .views import NoteViewSet, UserViewSet
 schema_view = get_schema_view(title='Notes API')
 
 # Create a router and register our viewsets with it.
-router = DefaultRouter() # Automatically creates the root '/' view
+router = DefaultRouter()  # Automatically creates the root '/' view
 router.register(r'notes', NoteViewSet)
 router.register(r'users', UserViewSet)
 
