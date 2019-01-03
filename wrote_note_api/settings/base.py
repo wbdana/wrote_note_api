@@ -29,17 +29,23 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Template from https://medium.com/my-new-roots/django-project-layout-494d2ed89b74
 
-INSTALLED_APPS = [
+PREREQUISITE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.notes.apps.NotesConfig',
     'rest_framework',
 ]
+
+PROJECT_APPS = [
+    'apps.notes.apps.NotesConfig',
+]
+
+INSTALLED_APPS = PREREQUISITE_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
