@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
-from .views import NoteViewSet, UserViewSet
+from .views import NoteViewSet, UserViewSet, ChecklistViewSet, ChecklistItemViewSet
 
 schema_view = get_schema_view(title='Notes API')
 
@@ -9,6 +9,8 @@ schema_view = get_schema_view(title='Notes API')
 router = DefaultRouter()  # Automatically creates the root '/' view
 router.register(r'notes', NoteViewSet)
 router.register(r'users', UserViewSet)
+router.register(r'checklists', ChecklistViewSet)
+router.register(r'checklistitems', ChecklistItemViewSet)
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [

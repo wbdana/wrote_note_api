@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Note
-from .serializers import NoteSerializer, UserSerializer
-from .permissions import IsOwnerOrReadOnly
+from .models import Note, Checklist, ChecklistItem
+from .serializers import NoteSerializer, UserSerializer, ChecklistSerializer, ChecklistItemSerializer
+from .permissions import IsNoteOwnerOrReadOnly, IsChecklistOwnerOrReadOnly
 from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.decorators import api_view, action
 from rest_framework.reverse import reverse
@@ -15,6 +15,7 @@ def api_root(request, format=None):
         'users': reverse('user-list', request=request, format=format),
         'notes': reverse('note-list', request=request, format=format),
     })
+
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -32,4 +33,22 @@ class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
+                          IsNoteOwnerOrReadOnly,)
+
+
+class ChecklistViewSet(viewsets.ModelViewSet):
+    """
+    Provides `list`, `create`, `retrieve`, `update`, and `destroy` actions for Checklist.
+    """
+    queryset = Checklist.objects.all()
+    serializer_class = ChecklistSerializer
+
+
+class ChecklistItemViewSet(viewsets.ModelViewSet):
+    """
+    Provides `list`, `create`, `retrieve`, `update`, and `destroy` actions for ChecklistItem.
+    """
+    queryset = ChecklistItem.objects.all()
+    serializer_class = ChecklistItemSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsChecklistOwnerOrReadOnly,)
