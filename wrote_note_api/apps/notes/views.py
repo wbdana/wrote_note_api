@@ -42,6 +42,8 @@ class ChecklistViewSet(viewsets.ModelViewSet):
     """
     queryset = Checklist.objects.all()
     serializer_class = ChecklistSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsChecklistOwnerOrReadOnly)
 
 
 class ChecklistItemViewSet(viewsets.ModelViewSet):
@@ -50,5 +52,4 @@ class ChecklistItemViewSet(viewsets.ModelViewSet):
     """
     queryset = ChecklistItem.objects.all()
     serializer_class = ChecklistItemSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsChecklistOwnerOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

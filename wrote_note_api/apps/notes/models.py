@@ -13,7 +13,7 @@ class Note(models.Model):
 
 class Checklist(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    note_id = models.ForeignKey('Note', related_name='note', on_delete=models.CASCADE, default='1')
+    note = models.ForeignKey('Note', related_name='note', on_delete=models.CASCADE, default='1')
 
     class Meta:
         ordering = ('created',)
@@ -22,7 +22,7 @@ class Checklist(models.Model):
 class ChecklistItem(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    checklist_id = models.ForeignKey('Checklist', related_name='checklist_items', on_delete=models.CASCADE, default='1')
+    checklist = models.ForeignKey('Checklist', related_name='checklist_items', on_delete=models.CASCADE, default='1')
 
     class Meta:
         ordering = ('created',)
