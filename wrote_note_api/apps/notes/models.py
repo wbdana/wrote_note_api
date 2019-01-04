@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 # https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 class Owner(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -13,6 +14,7 @@ class Owner(models.Model):
 
 
 class Collaborator(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -20,6 +22,7 @@ class Collaborator(models.Model):
 
 
 class Reader(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -60,14 +63,17 @@ class Note(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
     content = models.TextField()
-    owner = models.ForeignKey(User, related_name='notes', on_delete=models.CASCADE, default='1')
-    collaborator = models.ForeignKey
+    # owner = models.ForeignKey(User, related_name='notes', on_delete=models.CASCADE, default='1')
+    owner = models.ForeignKey(Owner, related_name='notes', on_delete=models.CASCADE, default='1')
+    collaborators = models.ManyToManyField(Collaborator, related_name='notes')
+    reader = models.ManyToManyField(Reader, related_name='notes')
 
     class Meta:
         ordering = ('created',)
 
 
 class NoteUser(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     note = models.ForeignKey(Note, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

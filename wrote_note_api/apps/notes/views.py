@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Note, Checklist, ChecklistItem
-from .serializers import NoteSerializer, UserSerializer, ChecklistSerializer, ChecklistItemSerializer
+from .models import Owner, Collaborator, Reader, Note, Checklist, ChecklistItem
+from .serializers import OwnerSerializer, CollaboratorSerializer, ReaderSerializer, NoteSerializer, UserSerializer, ChecklistSerializer, ChecklistItemSerializer
 from .permissions import IsNoteOwnerOrReadOnly, IsChecklistOwnerOrReadOnly
 from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.decorators import api_view, action
@@ -23,6 +23,21 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class OwnerViewSet(viewsets.ModelViewSet):
+    queryset = Owner.objects.all()
+    serializer_class = OwnerSerializer
+
+
+class CollaboratorViewSet(viewsets.ModelViewSet):
+    queryset = Collaborator.objects.all()
+    serializer_class = CollaboratorSerializer
+
+
+class ReaderViewSet(viewsets.ModelViewSet):
+    queryset = Reader.objects.all()
+    serializer_class = ReaderSerializer
 
 
 class NoteViewSet(viewsets.ModelViewSet):

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Note, Checklist, ChecklistItem
+from .models import Owner, Collaborator, Reader, Note, Checklist, ChecklistItem
 from django.contrib.auth.models import User
 
 
@@ -18,6 +18,30 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'id', 'username', 'notes',)
+
+
+class OwnerSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.HyperlinkedModelSerializer(view_name='user-detail', read_only=True)
+
+    class Meta:
+        model = Owner
+        fields = ('url', 'id', 'username', 'notes')
+
+
+class CollaboratorSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
+
+    class Meta:
+        model = Collaborator
+        fields = ('url', 'id', 'username', 'notes')
+
+
+class ReaderSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
+
+    class Meta:
+        model = Reader
+        fields = ('url', 'id', 'username', 'notes')
 
 
 class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
