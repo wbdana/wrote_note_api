@@ -32,8 +32,10 @@ class NoteViewSet(viewsets.ModelViewSet):
     """
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsNoteOwnerOrReadOnly,)
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsNoteOwnerOrReadOnly,
+    )
 
 
 class ChecklistViewSet(viewsets.ModelViewSet):
@@ -42,8 +44,10 @@ class ChecklistViewSet(viewsets.ModelViewSet):
     """
     queryset = Checklist.objects.all()
     serializer_class = ChecklistSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsChecklistOwnerOrReadOnly)
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsChecklistOwnerOrReadOnly
+    )
 
 
 class ChecklistItemViewSet(viewsets.ModelViewSet):
