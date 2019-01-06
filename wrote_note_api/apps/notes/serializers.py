@@ -13,19 +13,19 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
+    # notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'notes',)
+        fields = ('url', 'id', 'username',)
 
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.HyperlinkedModelSerializer(view_name='user-detail', read_only=True)
+    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
 
     class Meta:
         model = Owner
-        fields = ('url', 'id', 'username', 'notes')
+        fields = ('url', 'id', 'user',)
 
 
 class CollaboratorSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,7 +33,7 @@ class CollaboratorSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Collaborator
-        fields = ('url', 'id', 'username', 'notes')
+        fields = ('url', 'id', 'user',)
 
 
 class ReaderSerializer(serializers.HyperlinkedModelSerializer):
@@ -41,7 +41,7 @@ class ReaderSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Reader
-        fields = ('url', 'id', 'username', 'notes')
+        fields = ('url', 'id', 'user',)
 
 
 class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
