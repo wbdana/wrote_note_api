@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import Owner, Collaborator, Reader, Note, Checklist, ChecklistItem
-from .serializers import OwnerSerializer, CollaboratorSerializer, ReaderSerializer, NoteSerializer, UserSerializer, ChecklistSerializer, ChecklistItemSerializer
+from .serializers import OwnerSerializer, CollaboratorSerializer, ReaderSerializer, NoteSerializer, UserSerializer,\
+    ChecklistSerializer, ChecklistItemSerializer
 from .permissions import IsNoteOwnerOrReadOnly, IsChecklistOwnerOrReadOnly
 from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.decorators import api_view, action
