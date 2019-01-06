@@ -13,11 +13,11 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
+    # notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'notes',)
+        fields = ('url', 'id', 'username',)
 
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):

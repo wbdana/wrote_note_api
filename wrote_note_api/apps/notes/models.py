@@ -72,15 +72,6 @@ class Note(models.Model):
         ordering = ('created',)
 
 
-class NoteUser(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    note = models.ForeignKey(Note, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ('created',)
-
-
 class Checklist(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     note = models.ForeignKey('Note', related_name='note', on_delete=models.CASCADE, default='1')
