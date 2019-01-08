@@ -73,7 +73,7 @@ class Note(models.Model):
 
 class Checklist(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    note = models.ForeignKey(Note, related_name='note', on_delete=models.CASCADE, default='1')
+    note = models.ForeignKey(Note, related_name='checklists', on_delete=models.CASCADE, default='1')
 
     class Meta:
         ordering = ('created',)
