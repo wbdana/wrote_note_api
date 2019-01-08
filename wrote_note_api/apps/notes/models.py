@@ -63,10 +63,9 @@ class Note(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
     content = models.TextField()
-    # owner = models.ForeignKey(User, related_name='notes', on_delete=models.CASCADE, default='1')
     owner = models.ForeignKey(Owner, related_name='notes', on_delete=models.CASCADE, default='1')
     collaborators = models.ManyToManyField(Collaborator, related_name='notes')
-    reader = models.ManyToManyField(Reader, related_name='notes')
+    readers = models.ManyToManyField(Reader, related_name='notes')
 
     class Meta:
         ordering = ('created',)
@@ -85,7 +84,7 @@ class ChecklistItem(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     # checklist = models.ForeignKey('Checklist', related_name='checklist_items', on_delete=models.CASCADE, default='1')
-    checklist = models.ForeignKey(Checklist, related_name='checklist_items', on_delete=models.CASCADE, default='1')
+    checklist = models.ForeignKey(Checklist, related_name='checklists', on_delete=models.CASCADE, default='1')
 
     class Meta:
         ordering = ('created',)
