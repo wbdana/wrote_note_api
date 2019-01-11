@@ -20,14 +20,29 @@ class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
         model = Checklist
         fields = ('url', 'id', 'checklist_items', 'note',)
 
+    def create(self, validated_data):
+        checklist_items_data = validated_data.pop('checklist_items')
+        checklist = Checklist.objects.create(**validated_data)
+        for checklist_item_data in checklist_items_data:
+            ChecklistItem.objects.create(checklist=checklist, **checklist_item_data)
+        return checklist
+
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.HyperlinkedRelatedField(many=False, view_name='owner-detail', read_only=True)
-    checklists = ChecklistSerializer(many=True, read_only=True)
+    checklists = ChecklistSerializer(many=True, required=False, read_only=True)  # TODO Check to see what required=False did
 
     class Meta:
         model = Note
         fields = ('url', 'id', 'owner', 'title', 'content', 'checklists',)
+
+    def create(self, validated_data):
+        print("VALIDATED DATA", validated_data)
+        checklists_data = validated_data.pop('checklists')
+        note = Note.objects.create(**validated_data)
+        for checklist_data in checklists_data:
+            Checklist.objects.create(note=note, **checklist_data)
+        return note
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
