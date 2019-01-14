@@ -53,6 +53,16 @@ class NoteViewSet(viewsets.ModelViewSet):
         IsNoteOwnerOrReadOnly,
     )
 
+    @action(detail=True, methods=["GET", "POST"])
+    def checklists(self, request, pk=None):
+        note = self.get_object()
+        checklists = Checklist.objects.filter(note_id=note.id)
+        context = {
+            'request': request,
+        }
+        serializer = ChecklistSerializer(checklists, many=True, context=context)
+        return Response(serializer.data, status=200)
+
 
 class ChecklistViewSet(viewsets.ModelViewSet):
     """
@@ -64,6 +74,16 @@ class ChecklistViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly,
         IsChecklistOwnerOrReadOnly
     )
+
+    @action(detail=True, methods=["GET", "POST"])
+    def checklist_items(self, request, pk=None):
+        checklist = self.get_object()
+        checklist_items = ChecklistItem.objects.filter(checklist_id=checklist.id)
+        context = {
+            'request': request,
+        }
+        serializer = ChecklistSerializer(checklist_items, many=True, context=context)
+        return Response(serializer.data, status=200)
 
 
 class ChecklistItemViewSet(viewsets.ModelViewSet):

@@ -19,6 +19,7 @@ class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Checklist
         fields = ('url', 'id', 'checklist_items', 'note',)
+        depth = 1
 
     def create(self, validated_data):
         checklist_items_data = validated_data.pop('checklist_items')
@@ -37,7 +38,6 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'id', 'owner', 'title', 'content', 'checklists',)
 
     def create(self, validated_data):
-        print("VALIDATED DATA", validated_data)
         checklists_data = validated_data.pop('checklists')
         note = Note.objects.create(**validated_data)
         for checklist_data in checklists_data:
