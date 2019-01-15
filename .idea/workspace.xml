@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="386c9d69-e976-4439-a398-d62a3d3967e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrote_note_api/apps/notes/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/wrote_note_api/apps/notes/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrote_note_api/apps/notes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wrote_note_api/apps/notes/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wrote_note_api/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/wrote_note_api/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrote_note_api/wrote_note_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/wrote_note_api/wrote_note_api/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,41 +34,32 @@
         <counts>
           <entry key="json" value="1" />
           <entry key="py" value="10" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2666" />
+          <entry key="json" value="151" />
+          <entry key="py" value="2824" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2666" />
+          <entry key="JSON" value="151" />
+          <entry key="Python" value="2824" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wrote_note_api/apps/notes/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1547521955520" expanded="true" signature="1057:1406" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrote_note_api/apps/notes/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wrote_note_api/settings/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
-              <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+            <state relative-caret-position="184">
+              <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
               <folding>
                 <element signature="e#315#330#0" expanded="true" />
               </folding>
@@ -137,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/secrets.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="138">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -148,16 +135,21 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrote_note_api/wrote_note_api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="169">
               <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
               <folding>
                 <element signature="e#638#670#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -192,6 +184,7 @@
       <find>DEFAULT_AUTHENTICATION_CLASSES</find>
       <find>REST</find>
       <find>TEMPLATE_</find>
+      <find>SECRET_KEY</find>
     </findStrings>
     <replaceStrings>
       <replace>User</replace>
@@ -213,7 +206,6 @@
         <option value="$PROJECT_DIR$/wrote_note_api/apps/notes/apps.py" />
         <option value="$PROJECT_DIR$/wrote_note_api/wrote_note_api/wsgi.py" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/secrets.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/wrote_note_api/apps/checklists/models.py" />
         <option value="$PROJECT_DIR$/wrote_note_api/apps/checklists/serializers.py" />
@@ -236,8 +228,9 @@
         <option value="$PROJECT_DIR$/wrote_note_api/apps/notes/tests.py" />
         <option value="$PROJECT_DIR$/wrote_note_api/apps/notes/serializers.py" />
         <option value="$PROJECT_DIR$/wrote_note_api/apps/notes/views.py" />
-        <option value="$PROJECT_DIR$/wrote_note_api/settings/base.py" />
         <option value="$PROJECT_DIR$/wrote_note_api/wrote_note_api/urls.py" />
+        <option value="$PROJECT_DIR$/secrets.json" />
+        <option value="$PROJECT_DIR$/wrote_note_api/settings/base.py" />
       </list>
     </option>
   </component>
@@ -444,10 +437,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13127" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13127" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.32934782" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.4994664" visible="true" weight="0.53695655" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4994664" visible="true" weight="0.53695655" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053364" side_tool="true" weight="0.4411441" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32893288" />
@@ -554,9 +547,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wrote_note_api/apps/notes/migrations/0002_auto_20190103_0111.py" />
     <entry file="file://$PROJECT_DIR$/wrote_note_api/apps/notes/migrations/0002_auto_20190103_0117.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -720,25 +710,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/secrets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wrote_note_api/settings/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wrote_note_api/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
-          <folding>
-            <element signature="e#315#330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wrote_note_api/apps/notes/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -749,10 +722,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wrote_note_api/wrote_note_api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="169">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
           <folding>
             <element signature="e#638#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/secrets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wrote_note_api/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+          <folding>
+            <element signature="e#315#330#0" expanded="true" />
           </folding>
         </state>
       </provider>

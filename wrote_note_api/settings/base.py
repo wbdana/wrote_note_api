@@ -33,6 +33,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret_setting('SECRET_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_secret_setting('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_secret_setting('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+# Set up any needed extra scope:
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = []
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
