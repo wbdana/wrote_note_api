@@ -32,7 +32,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '&j)4(rss=v1d@gu5ek(a6(9&fh@*1#w&@g)ngx!&!2p$k**4lu'
 SECRET_KEY = get_secret_setting('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -59,7 +58,6 @@ PREREQUISITE_APPS = [
 
 PROJECT_APPS = [
     'apps.notes.apps.NotesConfig',
-    # 'apps.checklists.apps.ChecklistsConfig',
 ]
 
 INSTALLED_APPS = PREREQUISITE_APPS + PROJECT_APPS

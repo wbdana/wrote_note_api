@@ -67,6 +67,10 @@ class Note(models.Model):
     collaborators = models.ManyToManyField(Collaborator, related_name='notes')
     readers = models.ManyToManyField(Reader, related_name='notes')
 
+    @property
+    def checklists(self):
+        return self.checklists.all()
+
     class Meta:
         ordering = ('created',)
 

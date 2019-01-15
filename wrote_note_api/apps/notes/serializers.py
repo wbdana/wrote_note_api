@@ -13,13 +13,13 @@ class ChecklistItemSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
-    checklist_items = ChecklistItemSerializer(many=True, read_only=True)
+    checklist_items = ChecklistItemSerializer(many=True, required=False)
     note = serializers.HyperlinkedRelatedField(many=False, view_name='note-detail', read_only=True)
 
     class Meta:
         model = Checklist
         fields = ('url', 'id', 'checklist_items', 'note',)
-        depth = 1
+        depth = 2
 
     def create(self, validated_data):
         checklist_items_data = validated_data.pop('checklist_items')
@@ -31,11 +31,12 @@ class ChecklistSerializer(serializers.HyperlinkedModelSerializer):
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.HyperlinkedRelatedField(many=False, view_name='owner-detail', read_only=True)
-    checklists = ChecklistSerializer(many=True, required=False, read_only=True)  # TODO Check to see what required=False did
+    checklists = ChecklistSerializer(many=True, required=False)  # TODO Check to see what required=False did
 
     class Meta:
         model = Note
         fields = ('url', 'id', 'owner', 'title', 'content', 'checklists',)
+        depth = 2
 
     def create(self, validated_data):
         checklists_data = validated_data.pop('checklists')
