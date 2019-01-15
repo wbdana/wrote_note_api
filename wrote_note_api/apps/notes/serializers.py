@@ -39,7 +39,10 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         depth = 2
 
     def create(self, validated_data):
-        checklists_data = validated_data.pop('checklists')
+        try:
+            checklists_data = validated_data.pop('checklists')
+        except KeyError as err:
+            checklists_data = []
         note = Note.objects.create(**validated_data)
         for checklist_data in checklists_data:
             Checklist.objects.create(note=note, **checklist_data)
